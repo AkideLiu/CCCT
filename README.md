@@ -180,7 +180,7 @@ Happy Coding : )
 5. In your **ROOT** Level Cmake file add following configuration
 
    ```cmake
-   add_subdirectory(example_sub/new_project)
+   add_subdirectory(src/new_project)
    ```
 
    ![image-20210722015313467](https://minio.llycloud.com/image/uPic/image-20210722pJv7bB.png)
