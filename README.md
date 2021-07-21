@@ -215,7 +215,7 @@ Happy Coding : )
 
    https://plugins.jetbrains.com/plugin/12869-cmake-plus
 
-6. **IDE Eval Reset ⭐️ **-- Discover Jetbrains Marketplace Paid Plugins 
+6. **IDE Eval Reset **⭐️-- Discover Jetbrains Marketplace Paid Plugins 
 
    https://zhile.io/2020/11/18/jetbrains-eval-reset-da33a93d.html
 
@@ -244,10 +244,10 @@ Happy Coding : )
 ## Licensed Under GPL-v3
 
 ```shell
-Authors: All team member of UAws/wdc-team 
+Authors: Akide Liu
 
-COVID_contact_tracing_system
-Copyright (C) <2021>  UAws/wdc-team
+CCCT (Cmake Clion Conan Template)
+Copyright (C) <2021>  Akide Liu
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
