@@ -226,7 +226,7 @@ Happy Coding : )
 
    https://plugins.jetbrains.com/plugin/12869-cmake-plus
 
-6. **IDE Eval Reset **⭐️-- Discover Jetbrains Marketplace Paid Plugins 
+6. **IDE Eval Reset** ⭐️ -- Discover Jetbrains Marketplace Paid Plugins 
 
    https://zhile.io/2020/11/18/jetbrains-eval-reset-da33a93d.html
 
