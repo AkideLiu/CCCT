@@ -7,9 +7,9 @@
 
 - [Cmake Clion Conan Template](#cmake-clion-conan-template)
   * [Template Structure](#template-structure)
-  * [What is Cmake](#what-is-cmake)
   * [What is Conan](#what-is-conan-)
   * [What is Clion](#what-is-clion-)
+  * [What is Cmake](#what-is-cmake)
   * [Setup Instructions](#setup-instructions)
   * [Get Stated a new sub-project](#get-stated-a-new-sub-project)
   * [Featured Plugin](#featured-plugin)
