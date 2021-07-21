@@ -57,4 +57,4 @@ target_link_libraries(cmake_clion_template
 
 # -------------------------------------------------------
 # subdirectory support
-add_subdirectory(example_sub/AVLTree)
+add_subdirectory(src/AVLTree)
