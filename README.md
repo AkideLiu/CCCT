@@ -6,12 +6,10 @@
 
 
 - [Cmake Clion Conan Template](#cmake-clion-conan-template)
-  * [Author : [Akide Liu](https://github.com/AkideLiu)](#author----akide-liu--https---githubcom-akideliu-)
-    + [The template integration of Cmake Clion Conan for University of Adelaide C++ direction course educational purpose only](#the-template-integration-of-cmake-clion-conan-for-university-of-adelaide-c---direction-course-educational-purpose-only)
   * [Template Structure](#template-structure)
-  * [What is [Cmake](https://cmake.org/)？](#what-is--cmake--https---cmakeorg---)
-  * [What is [Conan](https://conan.io/) ?](#what-is--conan--https---conanio----)
-  * [What is [Clion](https://www.jetbrains.com/clion/) ?](#what-is--clion--https---wwwjetbrainscom-clion--rss---)
+  * [What is Cmake](#what-is-cmake)
+  * [What is Conan](#what-is-conan-)
+  * [What is Clion](#what-is-clion-)
   * [Setup Instructions](#setup-instructions)
   * [Get Stated a new sub-project](#get-stated-a-new-sub-project)
   * [Featured Plugin](#featured-plugin)
