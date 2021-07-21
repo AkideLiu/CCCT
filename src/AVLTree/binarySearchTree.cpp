@@ -8,8 +8,6 @@
 
 #include "binarySearchTree.h"
 
-#include <utility>
-
 binarySearchTree::binarySearchTree() = default;
 
 std::shared_ptr<Node> binarySearchTree::create_tree(vector<int> &input) {
