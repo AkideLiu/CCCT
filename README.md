@@ -4,6 +4,19 @@
 
 ### The template integration of Cmake Clion Conan for University of Adelaide C++ direction course educational purpose only
 
+
+- [Cmake Clion Conan Template](#cmake-clion-conan-template)
+  * [Author : [Akide Liu](https://github.com/AkideLiu)](#author----akide-liu--https---githubcom-akideliu-)
+    + [The template integration of Cmake Clion Conan for University of Adelaide C++ direction course educational purpose only](#the-template-integration-of-cmake-clion-conan-for-university-of-adelaide-c---direction-course-educational-purpose-only)
+  * [Template Structure](#template-structure)
+  * [What is [Cmake](https://cmake.org/)？](#what-is--cmake--https---cmakeorg---)
+  * [What is [Conan](https://conan.io/) ?](#what-is--conan--https---conanio----)
+  * [What is [Clion](https://www.jetbrains.com/clion/) ?](#what-is--clion--https---wwwjetbrainscom-clion--rss---)
+  * [Setup Instructions](#setup-instructions)
+  * [Get Stated a new sub-project](#get-stated-a-new-sub-project)
+  * [Featured Plugin](#featured-plugin)
+  * [Licensed Under GPL-v3](#licensed-under-gpl-v3)
+
 This template use cmake as build and complie support, conan build external framework (e.g. GTest), Clion integrated them together.
 
 This template design for multiple sub-projects architecture and optimized conan with once build unlimited reuse.
