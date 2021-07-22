@@ -28,6 +28,7 @@ jobs:
           #install system build dependency
           sudo apt update
           sudo apt-get -y install build-essential curl unzip tar pkg-config cmake python3-pip gdb
+
           sudo pip install conan
       - name: build and test
         run : |
@@ -59,4 +60,4 @@ jobs:
           mkdir build_test/
           cd build_test/
           cmake -DCMAKE_BUILD_TYPE=debug .. && make -j 12
-          bash -c $(find ./ -name 'AVLTree' | grep 'bin' | sed -r 's/\/\//\//g')
+          bash -c $(find ./ -name 'AVLTree' | grep 'bin' | sed 's/\/\//\//g')
