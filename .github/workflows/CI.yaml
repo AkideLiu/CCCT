@@ -1,0 +1,62 @@
+# Name your workflow
+name: CI
+
+# Set on which events you want run the actions.
+# In this case the workflow will run on push for master and on pull request for master and develop branches
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - '*'         # matches every branch that doesn't contain a '/'
+      - '*/*'       # matches every branch containing a single '/'
+      - '**'        # matches every branch
+jobs:
+  Linux:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+
+      - name: Setup Conan and CMake
+        run : |
+          #install system build dependency
+          sudo apt update
+          sudo apt-get -y install build-essential curl unzip tar pkg-config cmake python3-pip gdb
+          sudo pip install conan
+      - name: build and test
+        run : |
+          CURRENT_DIR=`pwd`
+          mkdir build_test/
+          cd build_test/
+          cmake -DCMAKE_BUILD_TYPE=debug .. && make -j 12
+          bash -c $(find ./ -name 'AVLTree' | grep 'bin' | sed -r 's/\/\//\//g')
+
+  MacOS:
+    strategy:
+      matrix:
+        os: [macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+
+      - name: Setup Conan and CMake
+        run : |
+          #install system build dependency
+          brew install conan
+          brew install cmake
+
+      - name: build and test
+        run : |
+          CURRENT_DIR=`pwd`
+          mkdir build_test/
+          cd build_test/
+          cmake -DCMAKE_BUILD_TYPE=debug .. && make -j 12
+          bash -c $(find ./ -name 'AVLTree' | grep 'bin' | sed -r 's/\/\//\//g')
