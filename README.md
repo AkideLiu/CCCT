@@ -19,6 +19,12 @@ This template use cmake as build and complie support, conan build external frame
 
 This template design for multiple sub-projects architecture and optimized conan with once build unlimited reuse.
 
+## Action CI Sample 
+
+Linux : [![CI](https://github.com/AkideLiu/CCCT/actions/workflows/CI.yaml/badge.svg?branch=master)](https://github.com/AkideLiu/CCCT/actions/workflows/CI.yaml)
+
+Macos : [![CI](https://github.com/AkideLiu/CCCT/actions/workflows/CI.yaml/badge.svg?branch=master)](https://github.com/AkideLiu/CCCT/actions/workflows/CI.yaml)
+
 ## Template Structure
 
 ```shell
