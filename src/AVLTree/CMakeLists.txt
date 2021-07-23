@@ -1,6 +1,6 @@
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/
-) # including current .h header (do not modify)
+) # including .h header in current directory (sub directory) (do not modify)
 
 conan_basic_setup() # conan support
 
