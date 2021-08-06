@@ -9,7 +9,7 @@
    Codename:	focal
    ```
 
-   https://docs.microsoft.com/en-us/windows/wsl/install-win10
+   [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
    
 
 2. Install missing package on WSL
