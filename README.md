@@ -65,6 +65,10 @@ The open source, decentralized and multi-platform package manager to create and 
 
 ## Setup Instructions
 
+Notice : The Setup instructions below is for **MacOS** and **Linux** Users.
+
+Looking for Windows Instructions? [Windows setup Instructions](./windows.md) 
+
 ```shell
 Distributor ID:	Ubuntu
 Description:	Ubuntu 20.04.2 LTS
@@ -114,6 +118,12 @@ Codename:	focal
 5. Install Conan
 
    MacOS :
+
+   Install homebrew if missing
+
+   ```sh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
 
    ```shell
    brew update
