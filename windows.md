@@ -39,6 +39,6 @@
 
 
 
-[Get Started a new Sub-project](https://github.com/AkideLiu/CCCT#get-stated-a-new-sub-project)
+[Get Started a new Sub-project](/#get-stated-a-new-sub-project)
 
  
