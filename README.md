@@ -132,10 +132,10 @@ Codename:	focal
 
    Linux :
 
-   make sure python3 is installed on the system ( if not `sudo apt install python3`)
+   make sure python3 is installed on the system ( if not `sudo apt install python3-pip`)
 
    ```shell
-   pip install conan
+   sudo pip install conan
    ```
 
 6. Install Cmake (Optional, due to clion bundled a cmake)
