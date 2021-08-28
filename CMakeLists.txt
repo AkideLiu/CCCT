@@ -37,7 +37,7 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_cmake_run(REQUIRES
 
         dbg-macro/0.4.0
-        gtest/1.10.0
+        gtest/1.11.0
         fmt/7.1.3
 
         BASIC_SETUP CMAKE_TARGETS
