@@ -10,11 +10,7 @@
 
 #include <gtest/gtest.h>
 #include <fmt/core.h>
-#include <memory>
-#include <dbg.h>
-#include <cmath>
-#include <algorithm>
-#include <exception>
+#include <bits/stdc++.h>
 
 // test target :
 

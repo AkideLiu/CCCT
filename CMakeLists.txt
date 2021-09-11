@@ -30,6 +30,7 @@ endif()
 
 #including dependencies headers
 include(${CMAKE_BINARY_DIR}/conan.cmake)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # configure the frameworks support
 # External framework or libs could be found on https://conan.io/center/
