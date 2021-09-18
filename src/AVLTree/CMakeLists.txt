@@ -4,6 +4,8 @@ include_directories(
 
 conan_basic_setup() # conan support
 
+add_compile_definitions(GTEST_LOCAL_TEST)
+
 add_executable(AVLTree # your sub-project name
 
         # add your source file (cpp file only)
@@ -13,7 +15,7 @@ add_executable(AVLTree # your sub-project name
         binarySearchTree.cpp
         binarySearchTree.h
         AVLTree.cpp
-        )
+        inputTest/main.cpp)
 
 
 

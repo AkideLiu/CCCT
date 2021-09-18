@@ -37,6 +37,8 @@ jobs:
           cd build_test/
           cmake -DCMAKE_BUILD_TYPE=debug .. && make -j 12
           bash -c $(find ./ -name 'AVLTree' | grep 'bin' | sed -r 's/\/\//\//g')
+          cd ${CURRENT_DIR}/src/AVLTree/inputTest
+          bash -c "test.bash"
 
   MacOS:
     strategy:
@@ -61,3 +63,5 @@ jobs:
           cd build_test/
           cmake -DCMAKE_BUILD_TYPE=debug .. && make -j 12
           bash -c $(find ./ -name 'AVLTree' | grep 'bin' | sed 's/\/\//\//g')
+          cd ${CURRENT_DIR}/src/AVLTree/inputTest
+          bash -c "test.bash"

@@ -34,105 +34,260 @@ int AVLTree::height(shared_ptr<Node> node) {
     if (node == nullptr) {
         return 0;
     }
-    return node->height;
+    return 1 + max(height(node->left), height(node->right));
 }
 
-shared_ptr<Node> AVLTree::newNode(int key) {
-    auto node = make_shared<Node>(key);
-    node->height = 1;
+shared_ptr<Node> AVLTree::insert(shared_ptr<Node> &node, int input) {
+
+
+    // if empty tree add a root element
+    if(node == nullptr)
+    {
+        node = make_shared<Node>(input);
+        return nullptr;
+    }
+
+    // add to left subtree
+    if(input < node->data)
+    {
+        insert(node->left, input);
+
+        // rebalance
+        int left_height = height(node->left);
+        int right_height = height(node->right);
+        if(left_height >= right_height + 2)
+        {
+            if(input < node->left->data)
+            {
+                leftRotate(node);
+            }
+            else
+            {
+                leftRightRotate(node);
+            }
+        }
+        return nullptr;
+    }
+
+    // add to right subtree
+    if(input > node->data)
+    {
+        insert(node->right, input);
+
+        // rebalance
+        int left_height = height(node->left);
+        int right_height = height(node->right);
+        if(left_height + 2 <= right_height)
+        {
+            if(input > node->right->data)
+            {
+                rightRotate(node);
+            }
+            else
+            {
+                rightLeftRotate(node);
+            }
+        }
+        return nullptr;
+    }
+
+    return nullptr;
+}
+
+AVLTree::NODE_T AVLTree::insert(int input) {
+    insert(this->m_root, input);
+    return nullptr;
+}
+
+AVLTree::NODE_T AVLTree::create_tree(vector<int> &input) {
+    for_each(input.begin(), input.end(),[&](int value){
+        insert(value);
+    });
+
+    return this->m_root;
+}
+
+AVLTree::AVLTree(vector<int> &input) : binarySearchTree(input) {
+    create_tree(input);
+}
+
+void AVLTree::deleteInAction(int input) {
+    deleteInAction(this->m_root, input);
+}
+
+void AVLTree::deleteInAction(AVLTree::NODE_T &node, int input) {
+    NODE_T iter = node;
+    while(iter != nullptr)
+    {
+        if(iter->data == input)
+            break;
+        if(iter->data < input)
+            iter = iter->right;
+        else
+            iter = iter->left;
+    }
+    if(iter == nullptr)
+    {
+        return;
+    }
+    if(iter->left == nullptr || iter->right == nullptr)
+    {
+        node = deleteInAction_withBalance(node, iter->data);
+        return;
+    }
+    int tmp;
+    NODE_T temp = iter->left;
+    while(temp->right != nullptr)
+    {
+        temp = temp->right;
+    }
+    tmp = temp->data;
+    deleteInAction_withBalance(node, temp->data);
+    iter->data = tmp;
+}
+
+AVLTree::NODE_T AVLTree::deleteInAction_withBalance(AVLTree::NODE_T &node, int value) {
+    if(node == nullptr)
+    {
+        return nullptr;
+    }
+    if(value < node->data)
+    {
+        node->left = deleteInAction_withBalance(node->left, value);
+        int left_height = height(node->left);
+        int right_height = height(node->right);
+        if(left_height + 2 <= right_height)
+        {
+            if(height(node->right->left) <= height(node->right->right))
+            {
+                rightRotate(node);
+            }
+            else
+            {
+                rightLeftRotate(node);
+            }
+        }
+        return node;
+    }
+    else if(value > node->data)
+    {
+        node->right = deleteInAction_withBalance(node->right, value);
+        int left_height = height(node->left);
+        int right_height = height(node->right);
+        if(left_height >= right_height + 2)
+        {
+            if(height(node->left->left) >= height(node->left->right))
+            {
+                leftRotate(node);
+            }
+            else
+            {
+                leftRightRotate(node);
+            }
+        }
+        return node;
+    }
+    else
+    {
+        if(node->left == nullptr && node->right == nullptr)
+        {
+            return nullptr;
+        }
+        if(node->left != nullptr)
+        {
+            return node->left;
+        }
+        else
+        {
+            return node->right;
+        }
+        return node;
+    }
+}
+
+AVLTree::NODE_T AVLTree::rightRotate(AVLTree::NODE_T &node) {
+    if (node == nullptr) {
+        return node;
+    }
+
+    NODE_T temp = node->right;
+
+    if (temp != nullptr) {
+        node->right = temp->left;
+    }
+
+    if (temp != nullptr) {
+        temp->left = node;
+    }
+
+    node = temp;
     return node;
 }
 
-shared_ptr<Node> AVLTree::rightRotate(const shared_ptr<Node>& y) {
-
-    shared_ptr<Node> x = y->left;
-    shared_ptr<Node> tmp = x->right;
-
-    x->right = y;
-    y->left = tmp;
-
-    y->height = max(height(y->left), height(y->right)) + 1;
-    x->height = max(height(x->left), height(y->right)) + 1;
-
-
-    return x;
-}
-
-shared_ptr<Node> AVLTree::leftRotate(const shared_ptr<Node>& x) {
-
-    shared_ptr<Node> y = x->right;
-    shared_ptr<Node> tmp = y->left;
-
-    y->left = x;
-    x->right = tmp;
-
-    x->height = max(height(x->left), height(x->right)) + 1;
-    y->height = max(height(y->left), height(y->right)) + 1;
-
-    return y;
-}
-
-int AVLTree::getBalance(const shared_ptr<Node> &node) {
-
+AVLTree::NODE_T AVLTree::leftRotate(AVLTree::NODE_T &node) {
     if (node == nullptr) {
-        return 0;
+        return node;
     }
 
-    return height(node->left) - height(node->right);
+    NODE_T temp = node->left;
 
+    if (temp != nullptr) {
+        node->left = temp->right;
+    }
+
+    if (temp != nullptr) {
+        temp->right = node;
+    }
+
+    node = temp;
+    return node;
 }
 
-shared_ptr<Node> AVLTree::insert(shared_ptr<Node> &root, int input) {
+AVLTree::NODE_T AVLTree::leftRightRotate(AVLTree::NODE_T &node) {
+    if (node == nullptr) {
+        return node;
+    }
 
+    rightRotate(node->left);
+    leftRotate(node);
+    return node;
+}
 
-    /* 1. Perform the normal BST insertion */
+AVLTree::NODE_T AVLTree::rightLeftRotate(AVLTree::NODE_T &node) {
+    if (node == nullptr) {
+        return node;
+    }
 
+    leftRotate(node->right);
+    rightRotate(node);
+    return node;
+}
+
+void AVLTree::postOrder() {
+    this->postOrder(this->m_root);
+}
+
+void AVLTree::preOrder() {
+    this->preOrder(this->m_root);
+}
+
+void AVLTree::postOrder(AVLTree::NODE_T &root) {
     if (root == nullptr) {
-        return newNode(input);
+        return;
     }
 
-    if (input < root->data) {
-        root->left = insert(root->left, input);
-    } else if (input > root->data) {
-        root->right = insert(root->right, input);
-    } else {
-        return root;
-    }
-
-    /* 2. Update height of this ancestor node */
-
-    root->height = 1 + max(height(root->left), height(root->right));
-
-
-    /* 3. Get the balance factor of this ancestor
-        node to check whether this node became
-        unbalanced */
-
-    int balance = getBalance(root);
-
-    if (balance > 1 && input < root->left->data) {
-        return rightRotate(root);
-    }
-
-    if (balance < -1 && input > root->right->data) {
-        return leftRotate(root);
-    }
-
-    if (balance > 1 && input > root->left->data) {
-        root->left = leftRotate(root->left);
-        return rightRotate(root);
-    }
-
-    if (balance < -1 && input < root->right->data) {
-        root->right = rightRotate(root->right);
-        return leftRotate(root);
-    }
-
-    return root;
-
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << " ";
 }
 
-shared_ptr<Node> AVLTree::insert(int input) {
-    this->m_root = insert(this->m_root, input);
-    return this->m_root;
-}
+void AVLTree::preOrder(AVLTree::NODE_T &root) {
+    if (root == nullptr) {
+        return;
+    }
+
+    cout << root->data << " ";
+    preOrder(root->left);
+    preOrder(root->right);
+};
+

@@ -11,14 +11,13 @@
 class Node{
 
 public:
-    int data;
-    std::shared_ptr<Node> left;
-    std::shared_ptr<Node> right;
+    int data, balance;
+    std::shared_ptr<Node> left, right;
     // for AVI tree
-    int height;
     explicit Node(int data) {
         this->data = data;
         this->left = this->right = nullptr;
+        balance = 0;
     }
 
 
