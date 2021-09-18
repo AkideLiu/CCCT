@@ -63,5 +63,7 @@ jobs:
           cd build_test/
           cmake -DCMAKE_BUILD_TYPE=debug .. && make -j 12
           bash -c $(find ./ -name 'AVLTree' | grep 'bin' | sed 's/\/\//\//g')
+          mkdir -p mkdir -p /usr/local/include/bits
+          wget "https://raw.githubusercontent.com/gcc-mirror/gcc/master/libstdc%2B%2B-v3/include/precompiled/stdc%2B%2B.h" -O /usr/local/include/bits/stdc++.h
           cd ${CURRENT_DIR}/src/AVLTree/inputTest
           ./test.bash
