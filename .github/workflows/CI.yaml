@@ -58,6 +58,9 @@ jobs:
 
       - name: build and test
         run : |
+          # https://github.com/conan-io/conan/issues/8022#issuecomment-726066945
+          xcode-select --install
+          open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.15.pkg
           CURRENT_DIR=`pwd`
           mkdir build_test/
           cd build_test/
