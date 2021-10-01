@@ -55,6 +55,7 @@ jobs:
           #install system build dependency
           brew install conan
           brew install cmake
+          brew upgrade
           conan profile new default --detect --force
 
       - name: build and test
