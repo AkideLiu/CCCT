@@ -53,8 +53,8 @@ jobs:
       - name: Setup Conan and CMake
         run : |
           #install system build dependency
-          brew install conan
           pip install conan
+          brew install cmake
           conan profile new default --detect --force
 
       - name: build and test
