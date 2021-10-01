@@ -54,7 +54,7 @@ jobs:
         run : |
           #install system build dependency
           brew install conan
-          brew install cmake
+          pip install conan
           conan profile new default --detect --force
 
       - name: build and test
