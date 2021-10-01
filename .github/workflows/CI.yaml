@@ -69,3 +69,7 @@ jobs:
           wget "https://raw.githubusercontent.com/AkideLiu/CCCT/master/include/bits/stdc%2B%2B.h" -O /usr/local/include/bits/stdc++.h
           cd ${CURRENT_DIR}/src/AVLTree/inputTest
           ./test.bash
+
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
