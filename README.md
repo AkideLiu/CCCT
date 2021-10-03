@@ -28,21 +28,33 @@ Macos : [![CI](https://github.com/AkideLiu/CCCT/actions/workflows/CI.yaml/badge.
 ## Template Structure
 
 ```shell
-├── CMakeLists.txt // top layer cmake setup
+├── CMakeLists.txt  // top layer cmake setup
+├── CNAME
 ├── LICENSE
 ├── README.md
-├── example_sub // example source code
+├── _config.yml
+├── include
+│   └── bits
+│       └── stdc++.h
+├── main.cpp
+├── src // example source code
 │   ├── AVLTree
 │   │   ├── AVLTree.cpp
 │   │   ├── AVLTree.h
 │   │   ├── CMakeLists.txt // sub dir cmake setup
 │   │   ├── Node.cpp
 │   │   ├── binarySearchTree.cpp
-│   │   └── binarySearchTree.h
+│   │   ├── binarySearchTree.h
+│   │   └── inputTest  // input test
+│   │       ├── AVLTree_testSet.txt
+│   │       ├── compare.txt
+│   │       ├── input.txt
+│   │       ├── main.cpp
+│   │       ├── out.txt
+│   │       └── test.bash
 │   └── Test
-│       └── AVLTree-Test.cpp // test file maintained in test folder
-└── main.cpp
-
+│       └── AVLTree-Test.cpp  // test file maintained in test folder
+└── windows.md
 ```
 
 ## What is [Cmake](https://cmake.org/)？
@@ -169,18 +181,20 @@ Codename:	focal
 8. Try the sample test file, make sure it runs properly
 
    ```shell
-   example_sub/Test/AVLTree-Test.cpp
+   src/Test/AVLTree-Test.cpp
    ```
 
-   ![image-20210722012641755](https://minio.llycloud.com/image/uPic/image-20210722zSz72a.png)
+   ![image-20211003144511215](https://minio.llycloud.com/image/uPic/image-20211003mMGtHG.png)
 
 Happy Coding : )
 
 ## Get Stated a new sub-project
 
-1. create a new directory under `example_sub` 
+1. create a new directory under `src` 
+   ![image-20211003144612449](https://minio.llycloud.com/image/uPic/image-20211003BfDxwF.png)
 
 2. create a test file in the `Test` Folder
+   ![image-20211003144712956](https://minio.llycloud.com/image/uPic/image-20211003lutSVc.png)
 
 3. create your sub_cmake
    ![image-20210722014725344](https://minio.llycloud.com/image/uPic/image-202107228LiAsI.png)
