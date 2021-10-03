@@ -2,7 +2,7 @@
 
 ## Author : [Akide Liu](https://github.com/AkideLiu)
 
-### The template integration of Cmake Clion Conan for University of Adelaide C++ direction course educational purpose only
+### The highly optimized and integrated template of Cmake Clion Conan for University of Adelaide C++ direction course. Educational purpose only
 
 
 - [Cmake Clion Conan Template](#cmake-clion-conan-template)
